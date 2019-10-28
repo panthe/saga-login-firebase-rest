@@ -1,3 +1,15 @@
+ATTENTION!
+You must create a .env file in the src directory with these informations:
+REACT_APP_API_KEY = [YOUR-APP-API-KEY]
+REACT_APP_AUTH_DOMAIN=[YOUR-APP-DOMAIN]
+REACT_APP_DATABASE_URL=[YOUR-APP-DATABASE-URL]
+REACT_APP_PROJECT_ID=[YOUR-APP-PROJECT-ID]
+REACT_APP_MESSAGING_SENDER_ID=[YOUR-APP-MESSAGGING-SENDER-ID]
+REACT_APP_MESSAGING_APP_ID=[YOUR-APP-MESSAGGING-ID]
+
+You can find all these informations in the firebase Console.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
