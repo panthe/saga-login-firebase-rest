@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
@@ -14,16 +14,18 @@ import HomePage from '../Home';
 import * as ROUTES from '../../config/routes';
 
 import { Container, Row, Col } from 'reactstrap';
-
+import {Provider} from "react-redux";
+import store from "../../store/configureStore";
+import {actionSignIn} from "../../store";
 const App = (): JSX.Element => {
-  return (
+  return ( <Provider store={store()}>
     <Router>
       <Container>
         <Row>
           <Col>
-            <Navigation /> 
+            <Navigation />
           </Col>
-        </Row>          
+        </Row>
 
             <Route exact path={ROUTES.LANDING_PAGE} component={LandingPage} />
             <Route path={ROUTES.SIGN_UP_PAGE} component={SignUpPage} />
@@ -33,6 +35,7 @@ const App = (): JSX.Element => {
 
       </Container>
     </Router>
+      </Provider>
   );
 };
 

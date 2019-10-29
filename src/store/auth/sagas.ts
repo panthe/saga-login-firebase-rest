@@ -1,5 +1,4 @@
 import { call, put } from 'redux-saga/effects';
-import { TypeExtraArguments } from '../types';
 import { AuthAction, AuthApiResponse } from './types';
 import { STATUS_VALID } from '../../utils/constants/status';
 import {
@@ -26,22 +25,23 @@ const fakeData: AuthApiResponse = {
 };
 
 
-export function* sagas(
+export function* sagasAuth(
   action: AuthAction,
-  extraArguments: TypeExtraArguments
 ) {
-  yield put(
-    actionSignInRequest({
-      email: '',
-      password: ''
-    })
-  );
+    console.log('START 2')
+
+    yield put(
+        actionSignInRequest({
+            isAuthenticated: false,
+            token: null,
+            errors: null,
+        }),
+    );
 
   try {
     const { payload, status, errors }: AuthApiResponse = yield call(
       apiSignInWithMailAndPassword,
-      action.params || {},
-      extraArguments.BASE_URL
+        action.params || {email: '', password: ''}
     );
 
     return yield put(
@@ -53,6 +53,7 @@ export function* sagas(
     );
 
   } catch (error) {
+      console.log('error 2')
     return yield put(
       actionSignInFailure({
         isAuthenticated: false,

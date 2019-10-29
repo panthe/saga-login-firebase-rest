@@ -1,9 +1,9 @@
 import rootReducer from './rootReducer';
-import { rootSagasAuth } from './rootSagas';
-import { store } from './configureStore';
+
+
 import { State } from './applicationState';
 import {
-  actionSignInRequest,
+  actionSignIn,
   AuthState,
   AuthParams,
   AuthData,
@@ -11,10 +11,9 @@ import {
 } from './auth';
 
 export {
-  store,
+
   rootReducer,
-  rootSagasAuth,
-  actionSignInRequest,
+  actionSignIn,
   /*
   State,
   AuthState,

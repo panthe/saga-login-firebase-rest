@@ -1,12 +1,11 @@
 import { takeLatest } from 'redux-saga/effects';
-import { TypeExtraArguments } from './types';
-import { EAuthActionTypes, AuthAction, sagas} from './auth';
+import { EAuthActionTypes, AuthAction, sagasAuth} from './auth';
 
-export const rootSagasAuth = function* rootSagasAuth(
-  extraArguments: TypeExtraArguments
-): any {
+
+
+
+export default function* rootSaga() {
   yield takeLatest(
-    EAuthActionTypes.GET_AUTH_LOGIN_REQUEST,
-    (action: AuthAction) => sagas(action, extraArguments)
+      EAuthActionTypes.GET_AUTH_LOGIN, (action: AuthAction) => sagasAuth(action)
   );
 }

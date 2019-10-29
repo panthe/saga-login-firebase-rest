@@ -1,8 +1,4 @@
-export enum EAuthActionTypes {
-  GET_AUTH_LOGIN_REQUEST = 'event/GET_AUTH_LOGIN_REQUEST',
-  GET_AUTH_LOGIN_SUCCESS = 'event/GET_AUTH_LOGIN_SUCCESS',
-  GET_AUTH_LOGIN_FAILURE = 'event/GET_AUTH_LOGIN_FAILURE',
-}
+
 
 export interface AuthState {
   readonly isAuthenticated: boolean;
@@ -11,8 +7,8 @@ export interface AuthState {
 }
 
 export interface AuthParams {
-  email?: string;
-  password?: string;
+  email: string;
+  password: string;
 }
 
 export interface AuthAction {
@@ -36,4 +32,12 @@ export interface AuthApiResponse {
   status: string;
   payload: AuthData;
   errors: [];
+}
+
+
+export enum EAuthActionTypes {
+  GET_AUTH_LOGIN = 'trigger/GET_AUTH_LOGIN',
+  GET_AUTH_LOGIN_REQUEST = 'event/GET_AUTH_LOGIN_REQUEST',
+  GET_AUTH_LOGIN_SUCCESS = 'event/GET_AUTH_LOGIN_SUCCESS',
+  GET_AUTH_LOGIN_FAILURE = 'event/GET_AUTH_LOGIN_FAILURE',
 }
