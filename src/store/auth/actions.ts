@@ -15,7 +15,6 @@ export const actionSignIn = (
   params,
 })};
 
-
 export const actionSignInRequest =
     (payload: AuthState): AuthAction => ({
       type: EAuthActionTypes.GET_AUTH_LOGIN_REQUEST,
