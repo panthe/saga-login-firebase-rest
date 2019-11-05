@@ -1,31 +1,16 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import { State } from '../../store/applicationState';
+import { AuthState } from '../../store/auth';
+import Navigation from './Navigation';
 
-import * as ROUTES from '../../config/routes';
+export interface PropsFromState {
+  auth: AuthState,
+}
 
-import { Nav, NavItem, NavLink } from 'reactstrap';
+const mapStateToProps = (state: State): PropsFromState => ({
+  auth: state.auth,
+});
 
-const Navigation = (): JSX.Element => {
-  return (
-    <div>      
-      <Nav>
-        <NavItem>
-          <NavLink href={ROUTES.SIGN_IN_PAGE}>
-            Sign In
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href={ROUTES.LANDING_PAGE}>
-            Landing
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href={ROUTES.HOME_PAGE}>
-            Home
-          </NavLink>
-        </NavItem>
-      </Nav>      
-    </div>
-  );
-};
-
-export default Navigation;
+export default connect(
+    mapStateToProps,
+)(Navigation);

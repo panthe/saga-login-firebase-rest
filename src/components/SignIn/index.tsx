@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { actionSignIn } from '../../store/auth/signin';
 import { State} from '../../store/applicationState';
@@ -31,9 +30,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps,
 )(SignIn);
-
-
-
-
-
-
