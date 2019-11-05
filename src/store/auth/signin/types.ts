@@ -1,5 +1,3 @@
-
-
 export interface AuthState {
   readonly isAuthenticated: boolean;
   readonly token: string | null;
@@ -29,11 +27,13 @@ export interface AuthData {
 }
 
 export interface AuthApiResponse {
-  status: string;
-  payload: AuthData;
-  errors: [];
+  localId: string;
+  email: string;
+  displayName: string;
+  idToken: string;
+  registered: boolean;  
+  error: [] | null;
 }
-
 
 export enum EAuthActionTypes {
   GET_AUTH_LOGIN = 'trigger/GET_AUTH_LOGIN',

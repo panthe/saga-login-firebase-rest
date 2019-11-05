@@ -16,7 +16,6 @@ interface IState {
 
 type IProps = PropsFromState & PropsFromDispatch;
 
-
 class SignIn extends React.Component<IProps, IState> {
 
     state = {
@@ -30,7 +29,6 @@ class SignIn extends React.Component<IProps, IState> {
     const {email, password} = this.state;
 
     this.props.actionSignIn({email, password});
-
   }
 
   render(): JSX.Element {
@@ -63,6 +61,5 @@ class SignIn extends React.Component<IProps, IState> {
     );
   }
 }
-
 
 export default  SignIn;

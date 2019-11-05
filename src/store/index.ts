@@ -1,23 +1,9 @@
 import rootReducer from './rootReducer';
-
-
-import { State } from './applicationState';
 import {
   actionSignIn,
-  AuthState,
-  AuthParams,
-  AuthData,
-  AuthApiResponse
-} from './auth';
+} from './auth/signin';
 
 export {
-
   rootReducer,
   actionSignIn,
-  /*
-  State,
-  AuthState,
-  AuthData,
-  AuthApiResponse
-  */
 };

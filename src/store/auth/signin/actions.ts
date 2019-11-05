@@ -2,7 +2,7 @@ import {
   EAuthActionTypes,
   AuthParams,
   AuthState,
-  AuthAction
+  AuthAction,
 } from './types';
 
 
