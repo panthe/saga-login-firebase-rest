@@ -1,9 +1,15 @@
 import { takeLatest } from 'redux-saga/effects';
-import { EAuthActionTypes, AuthAction, sagasAuth} from './auth/signin';
+import { EAuthSignInActionTypes, AuthSignInAction, sagasSignInAuth} from './auth/signin';
+import { EAuthRefreshTokenActionTypes, AuthRefreshTokenAction, sagasRefreshTokenAuth} from './auth/refreshtoken';
 
 export default function* rootSaga() {
   yield takeLatest(
-      EAuthActionTypes.GET_AUTH_LOGIN, 
-      (action: AuthAction) => sagasAuth(action)
+      EAuthSignInActionTypes.GET_AUTH_LOGIN, 
+      (action: AuthSignInAction) => sagasSignInAuth(action)
   );
+
+  yield takeLatest(
+    EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN, 
+    (action: AuthRefreshTokenAction) => sagasRefreshTokenAuth(action)
+);
 }

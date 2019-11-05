@@ -1,6 +1,5 @@
 import { call, put } from 'redux-saga/effects';
-import { AuthAction, AuthApiResponse } from './types';
-import { STATUS_VALID } from '../../../utils/constants/status';
+import { AuthSignInAction, AuthSignInApiResponse } from './types';
 import {
   actionSignInRequest,
   actionSignInSuccess,
@@ -10,21 +9,21 @@ import {
   apiSignInWithMailAndPassword
 } from './api';
 
-export function* sagasAuth(
-  action: AuthAction,
+export function* sagasSignInAuth(
+  action: AuthSignInAction,
 ) {
-    console.log('START 2')
-
     yield put(
         actionSignInRequest({
             isAuthenticated: false,
             token: null,
+            refreshToken: null,
+            expiresIn: 0,
             errors: null,
         }),
     );
 
   try {
-    const response: AuthApiResponse = yield call(
+    const response: AuthSignInApiResponse = yield call(
       apiSignInWithMailAndPassword,
         action.params || {email: '', password: ''}
     );
@@ -35,6 +34,8 @@ export function* sagasAuth(
         actionSignInFailure({
           isAuthenticated: false,
           token: null,
+          refreshToken: null,
+          expiresIn: 0,
           errors: response.error
         })
       );
@@ -43,6 +44,8 @@ export function* sagasAuth(
         actionSignInSuccess({
           isAuthenticated: true,
           token: response.idToken,
+          refreshToken: null,
+          expiresIn: 0,
           errors: null
         })
       );
@@ -54,6 +57,8 @@ export function* sagasAuth(
       actionSignInFailure({
         isAuthenticated: false,
         token: null,
+        refreshToken: null,
+        expiresIn: 0,
         errors: [error]
       })
     );

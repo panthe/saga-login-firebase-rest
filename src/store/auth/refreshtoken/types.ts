@@ -1,3 +1,5 @@
+import { AuthState } from '../types';
+
 export interface AuthRefreshTokenParams {
   token: string;
   returnSecureToken: boolean;

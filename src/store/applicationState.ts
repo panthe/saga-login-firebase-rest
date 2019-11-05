@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { AuthReducer, AuthState } from './auth/signin';
+import { AuthReducer, AuthState } from './auth';
 import { History } from 'history';
 import { connectRouter, RouterState } from 'connected-react-router';
 

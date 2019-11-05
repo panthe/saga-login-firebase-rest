@@ -3,6 +3,7 @@ import {
   AuthRefreshTokenParams,
   AuthRefreshTokenAction,
 } from './types';
+import { AuthState } from '../types';
 
 export const actionRefreshToken = (
   params: AuthRefreshTokenParams,

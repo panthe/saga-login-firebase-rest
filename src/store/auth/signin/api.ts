@@ -1,11 +1,11 @@
+import { FIREBASE_API_KEY } from '../../../config/keys';
 import { fetch } from '../../../utils/fetch';
-import { AuthParams } from './types';
+import { AuthSignInParams } from './types';
 
-const API_KEY: string = 'AIzaSyAxt4ZuZvemrczUykRGaY_0fFosUv4pbZ0';
-const urlSignIn: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
+const urlSignIn: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API_KEY}`;
 
 export const apiSignInWithMailAndPassword = async<T>(
-  params: AuthParams,
+  params: AuthSignInParams,
 ): Promise<T> => {
   console.log("Params", params);
   return fetch.post(urlSignIn,params);

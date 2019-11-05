@@ -1,34 +1,34 @@
+import { AuthState } from '../types';
 import {
-  EAuthActionTypes,
-  AuthParams,
-  AuthState,
-  AuthAction,
+  EAuthSignInActionTypes,
+  AuthSignInParams,  
+  AuthSignInAction,
 } from './types';
 
 
 export const actionSignIn = (
-    params: AuthParams,
-): AuthAction => {
-  console.log('PARAMS', params, EAuthActionTypes.GET_AUTH_LOGIN)
+    params: AuthSignInParams,
+): AuthSignInAction => {
+  console.log('PARAMS', params, EAuthSignInActionTypes.GET_AUTH_LOGIN)
   return ({
-  type: EAuthActionTypes.GET_AUTH_LOGIN,
+  type: EAuthSignInActionTypes.GET_AUTH_LOGIN,
   params,
 })};
 
 export const actionSignInRequest =
-    (payload: AuthState): AuthAction => ({
-      type: EAuthActionTypes.GET_AUTH_LOGIN_REQUEST,
+    (payload: AuthState): AuthSignInAction => ({
+      type: EAuthSignInActionTypes.GET_AUTH_LOGIN_REQUEST,
       payload
     });
 
 export const actionSignInSuccess =
-  (payload: AuthState): AuthAction => ({
-  type: EAuthActionTypes.GET_AUTH_LOGIN_SUCCESS,
+  (payload: AuthState): AuthSignInAction => ({
+  type: EAuthSignInActionTypes.GET_AUTH_LOGIN_SUCCESS,
   payload
 });
 
 export const actionSignInFailure =
-  (payload: AuthState): AuthAction => ({
-  type: EAuthActionTypes.GET_AUTH_LOGIN_FAILURE,
+  (payload: AuthState): AuthSignInAction => ({
+  type: EAuthSignInActionTypes.GET_AUTH_LOGIN_FAILURE,
   payload
 });

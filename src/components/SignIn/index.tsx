@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { actionSignIn } from '../../store/auth/signin';
 import { State} from '../../store/applicationState';
-import { AuthState} from '../../store/auth/signin';
+import { AuthState } from '../../store/auth';
 
 
 import SignIn from './SignIn';
-import {AuthParams} from "../../store/auth/signin";
-import {Dispatch} from "redux";
+import { AuthSignInParams } from "../../store/auth/signin";
+import { Dispatch } from "redux";
 
 
 export interface PropsFromState {
@@ -15,7 +15,7 @@ export interface PropsFromState {
 }
 
 export interface PropsFromDispatch {
-  actionSignIn: (params: AuthParams) => void;
+  actionSignIn: (params: AuthSignInParams) => void;
 }
 
 const mapStateToProps = (state: State): PropsFromState => ({
@@ -24,7 +24,7 @@ const mapStateToProps = (state: State): PropsFromState => ({
 
 
 const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch  => ({
-  actionSignIn: (params: AuthParams) => dispatch(actionSignIn(params)),
+  actionSignIn: (params: AuthSignInParams) => dispatch(actionSignIn(params)),
 });
 
 export default connect(

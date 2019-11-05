@@ -1,32 +1,18 @@
-export interface AuthState {
-  readonly isAuthenticated: boolean;
-  readonly token: string | null;
-  readonly errors: string[] | null;
-}
+import { AuthState } from '../types';
 
-export interface AuthParams {
+export interface AuthSignInParams {
   email: string;
   password: string;
 }
 
-export interface AuthAction {
-  type: EAuthActionTypes;
+export interface AuthSignInAction {
+  type: EAuthSignInActionTypes;
   payload?: AuthState;
   errors?: string[] | null;
-  params?: AuthParams;
+  params?: AuthSignInParams;
 }
 
-export interface AuthData {
-  localId: string;
-  email: string;
-  displayName: string;
-  idToken: string;
-  registered: boolean;
-  refreshToken: string;
-  expiresIn: number;
-}
-
-export interface AuthApiResponse {
+export interface AuthSignInApiResponse {
   localId: string;
   email: string;
   displayName: string;
@@ -35,7 +21,7 @@ export interface AuthApiResponse {
   error: [] | null;
 }
 
-export enum EAuthActionTypes {
+export enum EAuthSignInActionTypes {
   GET_AUTH_LOGIN = 'trigger/GET_AUTH_LOGIN',
   GET_AUTH_LOGIN_REQUEST = 'event/GET_AUTH_LOGIN_REQUEST',
   GET_AUTH_LOGIN_SUCCESS = 'event/GET_AUTH_LOGIN_SUCCESS',
