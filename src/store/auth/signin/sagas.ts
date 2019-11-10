@@ -19,7 +19,7 @@ export function* sagasSignInAuth(
             isAuthenticated: false,
             token: null,
             refreshToken: null,
-            expiresIn: 0,
+            expiresIn: null,
             errors: null,
         }),
     );
@@ -27,17 +27,17 @@ export function* sagasSignInAuth(
   try {
     const response: AuthSignInApiResponse = yield call(
       apiSignInWithMailAndPassword,
-        action.params || {email: '', password: ''}
+        action.params || {email: '', password: '', returnSecureToken: true}
     );
 
-    console.log("Response",response);
+    console.log("AuthSignInApiResponse",response);
     if (response.error) {
       yield put(
         actionSignInFailure({
           isAuthenticated: false,
           token: null,
           refreshToken: null,
-          expiresIn: 0,
+          expiresIn: null,
           errors: response.error
         })
       );
@@ -46,8 +46,8 @@ export function* sagasSignInAuth(
         actionSignInSuccess({
           isAuthenticated: true,
           token: response.idToken,
-          refreshToken: null,
-          expiresIn: 0,
+          refreshToken: response.refreshToken,
+          expiresIn: response.expiresIn,
           errors: null
         })
       );
@@ -62,7 +62,7 @@ export function* sagasSignInAuth(
         isAuthenticated: false,
         token: null,
         refreshToken: null,
-        expiresIn: 0,
+        expiresIn: null,
         errors: [error]
       })
     );

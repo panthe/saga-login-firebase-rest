@@ -22,7 +22,7 @@ const initialState : AuthState = {
   isAuthenticated: false,
   token: null,
   refreshToken: null,
-  expiresIn: 0,
+  expiresIn: null,
   errors: null
 };
 

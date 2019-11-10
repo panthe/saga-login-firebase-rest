@@ -71,8 +71,9 @@ class SignIn extends React.Component<IProps, IState> {
   onSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     const {email, password, hideErrors} = this.state;
+    const returnSecureToken = true;
     this.setState({ hideErrors: false });
-    this.props.actionSignIn({email, password});
+    this.props.actionSignIn({ email, password, returnSecureToken });
   }
 
   onDismissAlert = (): void => {

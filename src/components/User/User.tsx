@@ -11,7 +11,7 @@ class User extends React.Component<IProps> {
     super(props);
 
     const { auth } = this.props;
-    const refresh_token = auth.token;
+    const refresh_token = auth.refreshToken;
     const grant_type = 'refresh_token';
     if (refresh_token){
       this.props.actionRefreshToken({grant_type, refresh_token});

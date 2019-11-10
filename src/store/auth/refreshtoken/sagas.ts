@@ -17,7 +17,7 @@ export function* sagasRefreshTokenAuth(
             isAuthenticated: false,
             token: null,
             refreshToken: null,
-            expiresIn: 0,
+            expiresIn: null,
             errors: null,
         }),
     );
@@ -28,14 +28,14 @@ export function* sagasRefreshTokenAuth(
         action.params || {grant_type: 'refresh_token', refresh_token: ''}
     );
 
-    console.log("Response",response);
+    console.log("AuthRefreshTokenApiResponse",response);
     if (response.error) {
       return yield put(
         actionRefreshTokenFailure({
           isAuthenticated: false,
           token: null,
           refreshToken: null,
-          expiresIn: 0,
+          expiresIn: null,
           errors: response.error
         })
       );
@@ -43,9 +43,9 @@ export function* sagasRefreshTokenAuth(
       return yield put(
         actionRefreshTokenSuccess({
           isAuthenticated: true,
-          token: response.idToken,
-          refreshToken: response.refreshToken,
-          expiresIn: response.expiresIn,
+          token: response.id_token,
+          refreshToken: response.refresh_token,
+          expiresIn: response.expires_in,
           errors: null
         })
       );
@@ -58,7 +58,7 @@ export function* sagasRefreshTokenAuth(
         isAuthenticated: false,
         token: null,
         refreshToken: null,
-        expiresIn: 0,
+        expiresIn: null,
         errors: [error]
       })
     );

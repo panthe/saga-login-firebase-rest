@@ -15,10 +15,10 @@ export const actionRefreshToken = (
 })};
 
 export const actionRefreshTokenRequest =
-    (payload: AuthState): AuthRefreshTokenAction => ({
-      type: EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN_REQUEST,
-      payload
-    });
+  (payload: AuthState): AuthRefreshTokenAction => ({
+    type: EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN_REQUEST,
+    payload
+});
 
 export const actionRefreshTokenSuccess =
   (payload: AuthState): AuthRefreshTokenAction => ({

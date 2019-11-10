@@ -3,6 +3,7 @@ import { AuthState } from '../types';
 export interface AuthSignInParams {
   email: string;
   password: string;
+  returnSecureToken: boolean
 }
 
 export interface AuthSignInAction {
@@ -13,10 +14,13 @@ export interface AuthSignInAction {
 }
 
 export interface AuthSignInApiResponse {
-  localId: string;
-  email: string;
   displayName: string;
+  email: string;
+  expiresIn: string;
   idToken: string;
+  kind: string;
+  localId: string;
+  refreshToken: string;
   registered: boolean;  
   error: [] | null;
 }
