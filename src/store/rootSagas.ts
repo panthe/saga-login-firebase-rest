@@ -11,5 +11,5 @@ export default function* rootSaga() {
   yield takeLatest(
     EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN, 
     (action: AuthRefreshTokenAction) => sagasRefreshTokenAuth(action)
-);
+  );
 }

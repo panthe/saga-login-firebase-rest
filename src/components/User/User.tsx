@@ -6,10 +6,7 @@ import {PropsFromState, PropsFromDispatch} from './'
 type IProps = PropsFromState & PropsFromDispatch;
 
 class User extends React.Component<IProps> {
-  
-  constructor(props: IProps) {
-    super(props);
-
+  componentDidMount() {
     const { auth } = this.props;
     const refresh_token = auth.refreshToken;
     const grant_type = 'refresh_token';
