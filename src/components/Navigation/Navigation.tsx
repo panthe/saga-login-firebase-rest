@@ -30,6 +30,13 @@ const Navigation = (props: IProps): JSX.Element => {
           </NavLink>
         </NavItem>
         : null }
+        { auth.isAuthenticated ?
+        <NavItem>
+          <NavLink tag={Link} to={ROUTES.USER_PAGE}>
+            User
+          </NavLink>
+        </NavItem>
+        : null }
       </Nav>      
     </div>
   );

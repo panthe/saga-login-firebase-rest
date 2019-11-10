@@ -1,4 +1,6 @@
 import { call, put } from 'redux-saga/effects';
+import { push } from 'connected-react-router'
+import * as ROUTES from '../../../config/routes';
 import { AuthSignInAction, AuthSignInApiResponse } from './types';
 import {
   actionSignInRequest,
@@ -30,7 +32,7 @@ export function* sagasSignInAuth(
 
     console.log("Response",response);
     if (response.error) {
-      return yield put(
+      yield put(
         actionSignInFailure({
           isAuthenticated: false,
           token: null,
@@ -40,7 +42,7 @@ export function* sagasSignInAuth(
         })
       );
     }else{
-      return yield put(
+      yield put(
         actionSignInSuccess({
           isAuthenticated: true,
           token: response.idToken,
@@ -49,11 +51,13 @@ export function* sagasSignInAuth(
           errors: null
         })
       );
+
+      yield put(push(ROUTES.USER_PAGE));
     }
 
   } catch (error) {
     console.log("Error",error)
-    return yield put(
+    yield put(
       actionSignInFailure({
         isAuthenticated: false,
         token: null,

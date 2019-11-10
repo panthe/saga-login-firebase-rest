@@ -23,11 +23,6 @@ interface IState {
 type IProps = PropsFromState & PropsFromDispatch;
 
 class SignIn extends React.Component<IProps, IState> {
-
-  constructor(props: IProps){
-    super(props);
-  }
-
   state = {
     email: '',
     password: '',

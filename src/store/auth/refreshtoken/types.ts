@@ -1,8 +1,8 @@
 import { AuthState } from '../types';
 
 export interface AuthRefreshTokenParams {
-  token: string;
-  returnSecureToken: boolean;
+  grant_type: string;
+  refresh_token: string;  
 }
 
 export interface AuthRefreshTokenAction {
@@ -13,9 +13,12 @@ export interface AuthRefreshTokenAction {
 }
 
 export interface AuthRefreshTokenApiResponse {
-  idToken: string;
-  refreshToken: string;
   expiresIn: number;
+  token_type: string;
+  refreshToken: string;
+  idToken: string;
+  user_id: string;
+  project_id: string;
   error: [] | null;
 }
 

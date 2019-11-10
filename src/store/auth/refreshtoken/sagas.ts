@@ -25,7 +25,7 @@ export function* sagasRefreshTokenAuth(
   try {
     const response: AuthRefreshTokenApiResponse = yield call(
       apiRefreshToken,
-        action.params || {token: '', returnSecureToken: true}
+        action.params || {grant_type: 'refresh_token', refresh_token: ''}
     );
 
     console.log("Response",response);
@@ -44,8 +44,8 @@ export function* sagasRefreshTokenAuth(
         actionRefreshTokenSuccess({
           isAuthenticated: true,
           token: response.idToken,
-          refreshToken: null,
-          expiresIn: 0,
+          refreshToken: response.refreshToken,
+          expiresIn: response.expiresIn,
           errors: null
         })
       );

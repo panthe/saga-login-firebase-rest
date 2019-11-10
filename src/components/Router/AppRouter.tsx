@@ -12,6 +12,7 @@ import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
+import UserPage from '../User';
 
 import * as ROUTES from '../../config/routes';
 
@@ -38,11 +39,17 @@ const AppRouter = (props: IProps): JSX.Element => {
           <Route path={ROUTES.SIGN_IN_PAGE} component={SignInPage} />
           <Route path={ROUTES.PASSWORD_FORGET_PAGE} component={PasswordForgetPage} />                        
           { auth.isAuthenticated ?
-            <Route path={ROUTES.HOME_PAGE} component={HomePage} />
+            <Route path={ROUTES.HOME_PAGE} component={HomePage} />            
             : 
             <Route path={ROUTES.HOME_PAGE} component={Unauthorized} />
           }
+          { auth.isAuthenticated ?
+            <Route path={ROUTES.USER_PAGE} component={UserPage} />            
+            : 
+            <Route path={ROUTES.USER_PAGE} component={Unauthorized} />
+          }
             
+          
         </Container>
       </Router>    
   );
