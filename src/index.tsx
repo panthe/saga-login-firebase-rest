@@ -13,3 +13,22 @@ ReactDOM.render(
     </Provider>,
     document.querySelector('#root')
 );
+
+declare const module: any;
+declare function require(module_name: string): any;
+
+if (module.hot) {
+	module.hot.accept(['./App'], () => {
+		const App = require('./App');
+		const nextRootReducer = App.app_reducer;
+		store.replaceReducer(nextRootReducer);
+		const NextApp = App.App;
+		ReactDOM.render(
+			<Provider store={store}>
+                <App />
+            </Provider>,
+			document.getElementById('root') as HTMLElement,
+		);
+    });
+}
+

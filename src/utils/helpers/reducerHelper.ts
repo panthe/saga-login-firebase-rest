@@ -1,8 +1,9 @@
 import { Reducer } from 'redux';
 import { AuthSignInAction } from '../../store/auth/signin'
 import { AuthRefreshTokenAction } from '../../store/auth/refreshtoken'
+import { UserAction } from '../../store/user';
 
-type PermittedActions = AuthSignInAction & AuthRefreshTokenAction;
+type PermittedActions = AuthSignInAction & AuthRefreshTokenAction & UserAction;
 
 interface ObjectLiteral {
   [key: string]: any;

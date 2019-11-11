@@ -1,7 +1,7 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { push } from 'connected-react-router'
 import * as ROUTES from '../../../config/routes';
-import { AuthSignInAction, AuthSignInApiResponse } from './types';
+import { AuthSignInAction, AuthSignInApiResponse, EAuthSignInActionTypes } from './types';
 import {
   actionSignInRequest,
   actionSignInSuccess,
@@ -52,7 +52,7 @@ export function* sagasSignInAuth(
         })
       );
 
-      yield put(push(ROUTES.USER_PAGE));
+      yield put(push('www.google.it'));
     }
 
   } catch (error) {
@@ -67,4 +67,11 @@ export function* sagasSignInAuth(
       })
     );
   }
+}
+
+export function* watchAsyncSagasSignInAuth() {
+  yield takeLatest(
+    EAuthSignInActionTypes.GET_AUTH_LOGIN, 
+    (action: AuthSignInAction) => sagasSignInAuth(action)
+  );
 }

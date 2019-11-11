@@ -1,29 +1,32 @@
 import { connect } from 'react-redux';
-import { actionRefreshToken } from '../../store/auth/refreshtoken';
-import { State} from '../../store/applicationState';
 import { AuthState } from '../../store/auth';
-
-
+import { 
+  actionGetUserData,
+  UserParams,
+  UserState
+} from '../../store/user';
+import { State } from '../../store/applicationState';
 import User from './User';
-import { AuthRefreshTokenParams } from "../../store/auth/refreshtoken";
 import { Dispatch } from "redux";
 
 
 export interface PropsFromState {
   auth: AuthState,
+  user: UserState
 }
 
 export interface PropsFromDispatch {
-  actionRefreshToken: (params: AuthRefreshTokenParams) => void;
+  actionGetUserData: (params: UserParams) => void;
 }
 
 const mapStateToProps = (state: State): PropsFromState => ({
   auth: state.auth,
+  user: state.user
 });
 
 
 const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch  => ({
-  actionRefreshToken: (params: AuthRefreshTokenParams) => dispatch(actionRefreshToken(params)),
+  actionGetUserData: (params: UserParams) => dispatch(actionGetUserData(params)),
 });
 
 export default connect(

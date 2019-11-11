@@ -1,5 +1,5 @@
-import { call, put } from 'redux-saga/effects';
-import { AuthRefreshTokenAction, AuthRefreshTokenApiResponse } from './types';
+import { call, put, takeLatest } from 'redux-saga/effects';
+import { AuthRefreshTokenAction, AuthRefreshTokenApiResponse,EAuthRefreshTokenActionTypes } from './types';
 import {
   actionRefreshTokenRequest,
   actionRefreshTokenSuccess,
@@ -63,4 +63,11 @@ export function* sagasRefreshTokenAuth(
       })
     );
   }
+}
+
+export function* watchAsyncSagasRefreshTokenAuth() {
+  yield takeLatest(
+    EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN, 
+    (action: AuthRefreshTokenAction) => sagasRefreshTokenAuth(action)
+    );
 }

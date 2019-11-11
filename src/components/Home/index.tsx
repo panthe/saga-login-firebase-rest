@@ -1,13 +1,13 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import { State } from '../../store/applicationState';
+import Home from './Home';
 
-class Home extends React.Component {
-  render(): JSX.Element {
-    return (
-      <div>
-        Home
-      </div>
-    );
-  }
-}
+export interface PropsFromState {};
 
-export default Home;
+export interface PropsFromDispatch {};
+
+const mapStateToProps = (state:State): State => {
+  return state;
+};
+
+export default connect(mapStateToProps)(Home);

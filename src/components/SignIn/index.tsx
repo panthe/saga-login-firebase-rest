@@ -2,12 +2,9 @@ import { connect } from 'react-redux';
 import { actionSignIn } from '../../store/auth/signin';
 import { State} from '../../store/applicationState';
 import { AuthState } from '../../store/auth';
-
-
 import SignIn from './SignIn';
 import { AuthSignInParams } from "../../store/auth/signin";
 import { Dispatch } from "redux";
-
 
 export interface PropsFromState {
   auth: AuthState,

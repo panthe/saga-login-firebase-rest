@@ -1,13 +1,8 @@
 import React from 'react';
 
-import {PropsFromState, PropsFromDispatch} from './'
+import {PropsFromState, PropsFromDispatch} from './';
 
 import { Col, Button, Form, FormGroup, Label, Input, Alert, FormFeedback } from 'reactstrap';
-
-interface SignInProps {
-  isAuthenticated: boolean;
-  actionSignInRequest: Function;
-}
 
 interface IState {
   email?: string;
@@ -154,4 +149,4 @@ class SignIn extends React.Component<IProps, IState> {
   }
 }
 
-export default  SignIn;
+export default SignIn;

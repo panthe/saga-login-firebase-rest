@@ -1,25 +1,40 @@
 import React from 'react';
 
-import {PropsFromState, PropsFromDispatch} from './'
+import {PropsFromState, PropsFromDispatch} from './';
 
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 type IProps = PropsFromState & PropsFromDispatch;
 
 class User extends React.Component<IProps> {
+
   componentDidMount() {
-    const { auth } = this.props;
-    const refresh_token = auth.refreshToken;
-    const grant_type = 'refresh_token';
-    if (refresh_token){
-      this.props.actionRefreshToken({grant_type, refresh_token});
-    }
+    this.fetchUserData();
   }
-  
+
+  fetchUserData = (): void => {
+    const { auth } = this.props;
+    const { token } = auth;
+
+    if (token) {
+      this.props.actionGetUserData({idToken:token});  
+    }    
+  }
+
   render(): JSX.Element {   
-    
+    const { user } = this.props;
+    console.log("Render", this.props);
     return (
-      <div>
-        User
+      <div style={{width:'300px'}}>
+        <Card>
+          <CardImg top width="100%" src={user.photoUrl ? user.photoUrl : 'https://via.placeholder.com/150.png?text=Avatar'} alt="User Img" />
+          <CardTitle>{user.displayName}</CardTitle>
+          <CardSubtitle>{user.email}</CardSubtitle>
+          <CardText><b>ID:</b>{user.localId}</CardText>
+        </Card>
       </div>      
     );
   }
