@@ -32,7 +32,7 @@ export function* sagasSignInAuth(
 
     console.log("AuthSignInApiResponse",response);
     if (response.error) {
-      yield put(
+      return yield put(
         actionSignInFailure({
           isAuthenticated: false,
           token: null,
@@ -51,13 +51,13 @@ export function* sagasSignInAuth(
           errors: null
         })
       );
-
-      yield put(push('www.google.it'));
+      
+      return yield put(push(ROUTES.USER_PAGE));
     }
 
   } catch (error) {
     console.log("Error",error)
-    yield put(
+    return yield put(
       actionSignInFailure({
         isAuthenticated: false,
         token: null,

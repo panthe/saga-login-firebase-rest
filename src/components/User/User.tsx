@@ -3,8 +3,8 @@ import React from 'react';
 import {PropsFromState, PropsFromDispatch} from './';
 
 import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  Card, CardImg, CardText, 
+  CardTitle, CardSubtitle, 
 } from 'reactstrap';
 
 type IProps = PropsFromState & PropsFromDispatch;

@@ -10,6 +10,12 @@ import {
   authSignInFailure
 } from './signin';
 
+//SignOut
+import {
+  EAuthSignOutActionTypes,
+  authSignOutRequest,
+} from './signout';
+
 //RefreshToken
 import { 
   EAuthRefreshTokenActionTypes,
@@ -35,6 +41,7 @@ const authReducer: Reducer<AuthState> = createReducer(
     [EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN_REQUEST]: authRefreshTokenRequest,
     [EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN_SUCCESS]: authRefreshTokenSuccess,
     [EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN_FAILURE]: authRefreshTokenFailure,
+    [EAuthSignOutActionTypes.GET_AUTH_LOGOUT_REQUEST]: authSignOutRequest,
   }
 );
 

@@ -1,9 +1,10 @@
 import { Reducer } from 'redux';
-import { AuthSignInAction } from '../../store/auth/signin'
-import { AuthRefreshTokenAction } from '../../store/auth/refreshtoken'
+import { AuthSignInAction } from '../../store/auth/signin';
+import { AuthSignOutAction } from '../../store/auth/signout'
+import { AuthRefreshTokenAction } from '../../store/auth/refreshtoken';
 import { UserAction } from '../../store/user';
 
-type PermittedActions = AuthSignInAction & AuthRefreshTokenAction & UserAction;
+type PermittedActions = AuthSignInAction & AuthSignOutAction & AuthRefreshTokenAction & UserAction;
 
 interface ObjectLiteral {
   [key: string]: any;

@@ -37,6 +37,13 @@ const Navigation = (props: IProps): JSX.Element => {
           </NavLink>
         </NavItem>
         : null }
+        { auth.isAuthenticated ?
+        <NavItem>
+          <NavLink tag={Link} to={ROUTES.SIGN_OUT_PAGE}>
+            Log Out
+          </NavLink>
+        </NavItem>
+        : null }
       </Nav>      
     </div>
   );

@@ -6,11 +6,9 @@ import rootSaga from './rootSagas';
 import { rootReducer } from './applicationState';
 import { routerMiddleware } from 'connected-react-router';
 
-
 const composeEnhancers = composeWithDevTools({});
 const sagaMiddleware = createSagaMiddleware();
 export const history: History = createBrowserHistory();
-
 
 export default function configureStore() {
   const store: Store = createStore(
