@@ -1,8 +1,7 @@
-import { FIREBASE_API_KEY } from '../../../config/keys';
 import { fetch } from '../../../utils/fetch';
 import { AuthRefreshTokenParams } from './types';
 
-const urlRefreshToken: string = `https://securetoken.googleapis.com/v1/token?key=${FIREBASE_API_KEY}`;
+const urlRefreshToken: string = `https://securetoken.googleapis.com/v1/token?key=${process.env.REACT_APP_API_KEY}`;
 
 export const apiRefreshToken = async<T>(
   params: AuthRefreshTokenParams,
