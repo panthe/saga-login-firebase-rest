@@ -52,9 +52,9 @@ const initialState: UserState = ({
 const userReducer: Reducer<UserState> = createReducer(
   initialState,
   {
-    [EUserActionTypes.GET_USER_LOGIN_REQUEST]: userRequest,
-    [EUserActionTypes.GET_USER_LOGIN_SUCCESS]: userSuccess,
-    [EUserActionTypes.GET_USER_LOGIN_FAILURE]: userFailure
+    [EUserActionTypes.GET_USER_DATA_REQUEST]: userRequest,
+    [EUserActionTypes.GET_USER_DATA_SUCCESS]: userSuccess,
+    [EUserActionTypes.GET_USER_DATA_FAILURE]: userFailure
   }
 );
 

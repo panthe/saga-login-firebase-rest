@@ -1,9 +1,9 @@
 import React from 'react';
-import jwt from 'jsonwebtoken';
+
 import {PropsFromState, PropsFromDispatch} from './';
-import { convertFromEpoch } from '../../utils/helpers/epoch';
+
 import {
-  Card, CardImg, CardText, Button,
+  Card, CardImg, CardText,
   CardTitle, CardSubtitle, 
 } from 'reactstrap';
 

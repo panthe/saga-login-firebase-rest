@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, select } from 'redux-saga/effects';
 import { push } from 'connected-react-router'
 import * as ROUTES from '../../../config/routes';
 import { AuthSignOutAction, EAuthSignOutActionTypes } from './types';
@@ -9,6 +9,8 @@ import {
 export function* sagasSignOutAuth(
   action: AuthSignOutAction,
 ) {
+  const { auth } = yield select();
+  console.log("State Saga",auth);
     yield put(
         actionSignOutRequest({
             isAuthenticated: false,
@@ -18,6 +20,7 @@ export function* sagasSignOutAuth(
             errors: null,
         }),
     );  
+
 
     return yield put(push(ROUTES.SIGN_IN_PAGE));
 }

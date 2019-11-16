@@ -112,7 +112,7 @@ export function* sagasUser(
 
 export function* watchAsyncSagasUserData() {
   yield takeLatest(
-    EUserActionTypes.GET_USER_LOGIN, 
+    EUserActionTypes.GET_USER_DATA, 
     (action: UserAction) => sagasUser(action)
   );
 }

@@ -10,9 +10,7 @@ export const actionSignOut = (): AuthSignOutAction => {
   });
 };
 
-export const actionSignOutRequest =
-    (payload: AuthState): AuthSignOutAction => ({
-      type: EAuthSignOutActionTypes.GET_AUTH_LOGOUT_REQUEST,
-      payload
-    });
-
+export const actionSignOutRequest = (payload: AuthState): AuthSignOutAction => ({
+  type: EAuthSignOutActionTypes.GET_AUTH_LOGOUT_REQUEST,
+  payload
+});

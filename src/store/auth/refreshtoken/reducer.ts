@@ -8,19 +8,3 @@ export const authRefreshTokenRequest = (
   ...state,
   ...action.payload
 });
-
-export const authRefreshTokenSuccess = (
-  state: AuthState,
-  action: AuthRefreshTokenAction
-) => ({
-  ...state,
-  ...action.payload
-});
-
-export const authRefreshTokenFailure = (
-  state: AuthState,
-  action: AuthRefreshTokenAction
-) => ({
-  ...state,
-  ...action.payload
-});

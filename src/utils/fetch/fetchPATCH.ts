@@ -1,6 +1,5 @@
-import fetchConfigurationHeaders from './config';
-import { EHTTPMethodsTypes } from './types';
 import fetchConfigurationHeader from './config';
+import { EHTTPMethodsTypes } from './types';
 
 const fetchPATCH = async<T> (url:string): Promise<T> => {
   const response = await fetch(url, {

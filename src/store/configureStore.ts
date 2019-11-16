@@ -5,7 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSagas';
 import { rootReducer } from './applicationState';
 import { routerMiddleware } from 'connected-react-router';
-import requestMiddleware from './requestMiddleware';
+import requestMiddleware from './middleware/requestMiddleware';
 
 const composeEnhancers = composeWithDevTools({});
 const sagaMiddleware = createSagaMiddleware();
@@ -23,5 +23,3 @@ export default function configureStore() {
 
   return store
 }
-
-

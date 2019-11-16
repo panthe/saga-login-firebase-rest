@@ -19,15 +19,3 @@ export const actionRefreshTokenRequest =
     type: EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN_REQUEST,
     payload
 });
-
-export const actionRefreshTokenSuccess =
-  (payload: AuthState): AuthRefreshTokenAction => ({
-  type: EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN_SUCCESS,
-  payload
-});
-
-export const actionRefreshTokenFailure =
-  (payload: AuthState): AuthRefreshTokenAction => ({
-  type: EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN_FAILURE,
-  payload
-});

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { State } from '../../store/applicationState';
-import { push } from 'connected-react-router'
 import { Dispatch } from "redux";
 import Landing from './Landing';
 
