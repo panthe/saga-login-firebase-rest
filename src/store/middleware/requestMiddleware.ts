@@ -13,19 +13,21 @@ export default function requestMiddleware():MiddlewareFunction {
 
       if (isTokenExpired(auth.token)){
         console.log("ActionRefreshToken Called", auth);
+        
         apiRefreshToken({
           grant_type:"refresh_token",
           refresh_token:auth.refreshToken
         }).then((response) => {
           console.log("Response on RequestMiddleware",response)
-
+          console.log("Action on RequestMiddleware",action)
           dispatch(actionRefreshToken({
             token: response.id_token,
             refreshToken: response.refresh_token,
             expiresIn: response.expires_in
           }));
+        }).catch((error) => {
+          console.log("ActionRefreshToken in Error",error)
         });
-        
         
         return next(action);
       }else{
