@@ -2,6 +2,14 @@ import { Reducer } from 'redux';
 import { createReducer } from '../../utils/helpers/reducerHelper';
 import { AuthState } from './types';
 
+//SignUp
+import { 
+  EAuthSignUpActionTypes,
+  authSignUpRequest,
+  authSignUpSuccess,
+  authSignUpFailure
+} from './signup';
+
 //SignIn
 import { 
   EAuthSignInActionTypes,
@@ -33,6 +41,9 @@ const initialState : AuthState = {
 const authReducer: Reducer<AuthState> = createReducer(
   initialState,
   {
+    [EAuthSignUpActionTypes.GET_AUTH_REGISTER_REQUEST]: authSignUpRequest,
+    [EAuthSignUpActionTypes.GET_AUTH_REGISTER_SUCCESS]: authSignUpSuccess,
+    [EAuthSignUpActionTypes.GET_AUTH_REGISTER_FAILURE]: authSignUpFailure,
     [EAuthSignInActionTypes.GET_AUTH_LOGIN_REQUEST]: authSignInRequest,
     [EAuthSignInActionTypes.GET_AUTH_LOGIN_SUCCESS]: authSignInSuccess,
     [EAuthSignInActionTypes.GET_AUTH_LOGIN_FAILURE]: authSignInFailure,

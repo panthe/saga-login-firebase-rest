@@ -32,12 +32,7 @@ class User extends React.Component<IProps> {
   }
 
   fetchUserData = (): void => {
-    const { auth } = this.props;
-    const { token } = auth;
-
-    if (token) {
-      this.props.actionGetUserData({idToken:token});  
-    }    
+    this.props.actionGetUserData();  
   }
 
   render(): JSX.Element {   

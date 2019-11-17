@@ -25,7 +25,6 @@ export interface UserAction {
   type: EUserActionTypes;
   payload?: UserState;
   errors?: string[] | null;
-  params?: UserParams;
 }
 
 export interface UsersApiResponse {

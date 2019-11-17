@@ -6,14 +6,12 @@ import {
 } from './types';
 
 
-export const actionSignIn = (
-    params: AuthSignInParams,
-): AuthSignInAction => {
-  console.log('PARAMS', params, EAuthSignInActionTypes.GET_AUTH_LOGIN)
-  return ({
-  type: EAuthSignInActionTypes.GET_AUTH_LOGIN,
-  params,
-})};
+export const actionSignIn = (params: AuthSignInParams): AuthSignInAction => (
+  {
+    type: EAuthSignInActionTypes.GET_AUTH_LOGIN,
+    params,
+  }
+);
 
 export const actionSignInRequest =
     (payload: AuthState): AuthSignInAction => ({

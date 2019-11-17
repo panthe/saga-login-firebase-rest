@@ -13,6 +13,11 @@ const Navigation = (props: IProps): JSX.Element => {
   return (
     <div>      
       <Nav>
+      <NavItem>
+          <NavLink tag={Link} to={ROUTES.SIGN_UP_PAGE}>
+            Sign Up
+          </NavLink>
+        </NavItem>
         <NavItem>
           <NavLink tag={Link} to={ROUTES.SIGN_IN_PAGE}>
             Sign In

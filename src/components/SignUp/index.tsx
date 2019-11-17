@@ -1,13 +1,29 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import { actionSignUp } from '../../store/auth/signup';
+import { State} from '../../store/applicationState';
+import { AuthState } from '../../store/auth';
+import SignUp from './SignUp';
+import { AuthSignUpParams } from "../../store/auth/signup";
+import { Dispatch } from "redux";
 
-class SignUp extends React.Component {
-  render(): JSX.Element {
-    return (
-      <div>
-        <h1>SignUp</h1>        
-      </div>
-    );
-  }
+export interface PropsFromState {
+  auth: AuthState,
 }
 
-export default SignUp;
+export interface PropsFromDispatch {
+  actionSignUp: (params: AuthSignUpParams) => void;
+}
+
+const mapStateToProps = (state: State): PropsFromState => ({
+  auth: state.auth,
+});
+
+
+const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch  => ({
+  actionSignUp: (params: AuthSignUpParams) => dispatch(actionSignUp(params)),
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(SignUp);

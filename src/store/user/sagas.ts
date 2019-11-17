@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, select } from 'redux-saga/effects';
 import {
   UserAction,
   UsersApiResponse,
@@ -15,6 +15,7 @@ import { apiGetUserData } from './api';
 export function* sagasUser(
     action: UserAction
 ) {
+  
   yield put(actionGetUserDataRequest({
       isLoading: true,
       isLoaded: false,
@@ -36,9 +37,10 @@ export function* sagasUser(
   );
 
   try {
+    const { auth } = yield select();
     const response: UsersApiResponse = yield call(
       apiGetUserData,
-      action.params || { idToken: ''}
+      { idToken: auth.token}
     );
 
     console.log("UsersApiResponse",response);

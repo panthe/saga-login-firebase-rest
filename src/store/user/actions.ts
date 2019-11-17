@@ -1,17 +1,12 @@
 import { 
   UserState,
   EUserActionTypes,
-  UserAction,
-  UserParams
+  UserAction
 } from './types';
 
-export const actionGetUserData = (
-  params: UserParams
-): UserAction => {
-  console.log('PARAMS', params, EUserActionTypes.GET_USER_DATA);
+export const actionGetUserData = (): UserAction => {
   return ({
-    type: EUserActionTypes.GET_USER_DATA,
-    params
+    type: EUserActionTypes.GET_USER_DATA
   })
 };
 

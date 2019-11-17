@@ -16,7 +16,7 @@ export interface PropsFromState {
 }
 
 export interface PropsFromDispatch {
-  actionGetUserData: (params: UserParams) => void;
+  actionGetUserData: () => void;
 }
 
 const mapStateToProps = (state: State): PropsFromState => ({
@@ -26,7 +26,7 @@ const mapStateToProps = (state: State): PropsFromState => ({
 
 
 const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch  => ({
-  actionGetUserData: (params: UserParams) => dispatch(actionGetUserData(params)),
+  actionGetUserData: () => dispatch(actionGetUserData()),
 });
 
 export default connect(

@@ -1,4 +1,4 @@
-import rootReducer from './rootReducer';
+import { rootReducer } from './applicationState';
 import {
   actionSignIn,
 } from './auth/signin';
