@@ -6,18 +6,18 @@ import { UserAction } from '../../store/user';
 
 type PermittedActions = AuthSignInAction & AuthSignOutAction & AuthRefreshTokenAction & UserAction;
 
-interface ObjectLiteral {
-  [key: string]: any;
+interface Handler<State> {
+  [key: string]: Reducer<State>
 }
 
 export function createReducer<State>(
   initialState: State,
-  handlers: ObjectLiteral,
+  handler: Handler<State>,
 ): Reducer<State> {
   return (state: State = initialState, action: PermittedActions): State => {
     console.log('TYPE', action.type)
-    if (handlers[action.type]) {
-      return handlers[action.type](state, action);
+    if (handler[action.type]) {
+      return handler[action.type](state, action);
     }
     return state;
   };
