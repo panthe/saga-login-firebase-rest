@@ -6,13 +6,13 @@ import { UserAction } from '../../store/user';
 
 type PermittedActions = AuthSignInAction & AuthSignOutAction & AuthRefreshTokenAction & UserAction;
 
-interface Handler<State> {
-  [key: string]: Reducer<State>
+interface Handler{
+  [key: string]: Reducer
 }
 
 export function createReducer<State>(
   initialState: State,
-  handler: Handler<State>,
+  handler: Handler
 ): Reducer<State> {
   return (state: State = initialState, action: PermittedActions): State => {
     console.log('TYPE', action.type)

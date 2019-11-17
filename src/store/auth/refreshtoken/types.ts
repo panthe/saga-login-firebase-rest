@@ -1,5 +1,4 @@
 import { AuthState } from '../types';
-import { Action } from 'redux';
 
 export interface AuthRefreshTokenParams {
   token: string | null;

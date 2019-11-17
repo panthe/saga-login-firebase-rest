@@ -1,5 +1,5 @@
 
-import { Action, Dispatch, MiddlewareAPI, Store } from 'redux';
+import { Action, Dispatch, MiddlewareAPI } from 'redux';
 import { isTokenExpired, apiRefreshToken } from '../../utils/helpers/token';
 import { ERequestMiddlewareActionTypes } from './types';
 import { actionRefreshToken} from '../auth/refreshtoken';

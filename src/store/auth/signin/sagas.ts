@@ -17,6 +17,7 @@ export function* sagasSignInAuth(
     yield put(
         actionSignInRequest({
             isAuthenticated: false,
+            isRefreshingToken: false,
             token: null,
             refreshToken: null,
             expiresIn: null,
@@ -35,6 +36,7 @@ export function* sagasSignInAuth(
       return yield put(
         actionSignInFailure({
           isAuthenticated: false,
+          isRefreshingToken: false,
           token: null,
           refreshToken: null,
           expiresIn: null,
@@ -45,6 +47,7 @@ export function* sagasSignInAuth(
       yield put(
         actionSignInSuccess({
           isAuthenticated: true,
+          isRefreshingToken: false,
           token: response.idToken,
           refreshToken: response.refreshToken,
           expiresIn: response.expiresIn,
@@ -60,6 +63,7 @@ export function* sagasSignInAuth(
     return yield put(
       actionSignInFailure({
         isAuthenticated: false,
+        isRefreshingToken: false,
         token: null,
         refreshToken: null,
         expiresIn: null,

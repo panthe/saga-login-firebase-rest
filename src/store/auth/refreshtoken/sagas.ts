@@ -11,6 +11,7 @@ export function* sagasRefreshTokenAuth(
     yield put(
       actionRefreshTokenRequest({
         isAuthenticated: true,
+        isRefreshingToken: true,
         token: action.params.token,
         refreshToken: action.params.refreshToken,
         expiresIn: action.params.expiresIn,

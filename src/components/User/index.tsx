@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { AuthState } from '../../store/auth';
 import { 
-  actionGetUserData,
-  UserParams,
+  actionGetUserData,  
   UserState
 } from '../../store/user';
 import { State } from '../../store/applicationState';

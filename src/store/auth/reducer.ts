@@ -32,6 +32,7 @@ import {
 
 const initialState : AuthState = {
   isAuthenticated: false,
+  isRefreshingToken: false,
   token: null,
   refreshToken: null,
   expiresIn: null,

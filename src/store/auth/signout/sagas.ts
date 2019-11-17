@@ -14,6 +14,7 @@ export function* sagasSignOutAuth(
     yield put(
         actionSignOutRequest({
             isAuthenticated: false,
+            isRefreshingToken: false,
             token: null,
             refreshToken: null,
             expiresIn: null,
