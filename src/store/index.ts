@@ -1,13 +1,5 @@
 import { rootReducer } from './applicationState';
-import {
-  actionSignIn,
-} from './auth/signin';
-import {
-  actionGetUserData
-} from './user';
+import { actionSignIn } from './auth/signin';
+import { actionGetUserData } from './user';
 
-export {
-  rootReducer,
-  actionSignIn,
-  actionGetUserData
-};
+export { rootReducer, actionSignIn, actionGetUserData };

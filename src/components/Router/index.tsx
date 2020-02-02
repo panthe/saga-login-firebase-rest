@@ -4,13 +4,11 @@ import { AuthState } from '../../store/auth';
 import AppRouter from './AppRouter';
 
 export interface PropsFromState {
-  auth: AuthState  
+  auth: AuthState;
 }
 
 const mapStateToProps = (state: State): PropsFromState => ({
-  auth: state.auth  
+  auth: state.auth
 });
 
-export default connect(
-    mapStateToProps,
-)(AppRouter);
+export default connect(mapStateToProps)(AppRouter);

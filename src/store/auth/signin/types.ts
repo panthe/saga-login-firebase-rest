@@ -21,7 +21,7 @@ export interface AuthSignInApiResponse {
   kind: string;
   localId: string;
   refreshToken: string;
-  registered: boolean;  
+  registered: boolean;
   error: [] | null;
 }
 

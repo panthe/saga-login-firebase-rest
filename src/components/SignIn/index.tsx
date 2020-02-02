@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { actionSignIn } from '../../store/auth/signin';
-import { State} from '../../store/applicationState';
+import { State } from '../../store/applicationState';
 import { AuthState } from '../../store/auth';
 import SignIn from './SignIn';
-import { AuthSignInParams } from "../../store/auth/signin";
-import { Dispatch } from "redux";
+import { AuthSignInParams } from '../../store/auth/signin';
+import { Dispatch } from 'redux';
 
 export interface PropsFromState {
-  auth: AuthState,
+  auth: AuthState;
 }
 
 export interface PropsFromDispatch {
@@ -15,15 +15,11 @@ export interface PropsFromDispatch {
 }
 
 const mapStateToProps = (state: State): PropsFromState => ({
-  auth: state.auth,
+  auth: state.auth
 });
 
-
-const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch  => ({
-  actionSignIn: (params: AuthSignInParams) => dispatch(actionSignIn(params)),
+const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => ({
+  actionSignIn: (params: AuthSignInParams) => dispatch(actionSignIn(params))
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

@@ -1,13 +1,9 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import { AuthRefreshTokenAction, EAuthRefreshTokenActionTypes } from './types';
-import {
-  actionRefreshTokenRequest
-} from './actions';
+import { actionRefreshTokenRequest } from './actions';
 
-export function* sagasRefreshTokenAuth(
-  action: AuthRefreshTokenAction,
-) {
-  if (action.params){
+export function* sagasRefreshTokenAuth(action: AuthRefreshTokenAction) {
+  if (action.params) {
     yield put(
       actionRefreshTokenRequest({
         isAuthenticated: true,
@@ -15,14 +11,14 @@ export function* sagasRefreshTokenAuth(
         refreshToken: action.params.refreshToken,
         expiresIn: action.params.expiresIn,
         errors: null
-      }),
+      })
     );
   }
 }
 
 export function* watchAsyncSagasRefreshTokenAuth() {
   yield takeLatest(
-    EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN, 
+    EAuthRefreshTokenActionTypes.GET_AUTH_REFRESH_TOKEN,
     (action: AuthRefreshTokenAction) => sagasRefreshTokenAuth(action)
-    );
+  );
 }

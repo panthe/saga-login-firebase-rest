@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import { State } from '../../store/applicationState';
 import Home from './Home';
+import { AuthState } from '../../store/auth';
 
-export interface PropsFromState {};
+export interface PropsFromState {
+  auth: AuthState;
+}
 
-export interface PropsFromDispatch {};
-
-const mapStateToProps = (state:State): State => {
+const mapStateToProps = (state: State): State => {
   return state;
 };
 

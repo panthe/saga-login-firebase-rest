@@ -9,8 +9,13 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "env": {
     "browser": true,
+    "node": true,
     "jasmine": true,
-    "jest": true
+    "jest": true,
+    "es6": true
+  },
+  "globals": {
+    "document": false
   },
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }]

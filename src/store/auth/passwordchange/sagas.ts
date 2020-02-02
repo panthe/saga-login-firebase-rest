@@ -11,19 +11,15 @@ import {
 } from './actions';
 import { apiPasswordChange } from './api';
 
-export function* sagasPasswordChangeAuth(
-  action: AuthPasswordChangeAction
-) {
+export function* sagasPasswordChangeAuth(action: AuthPasswordChangeAction) {
   const { auth } = yield select();
 
-  yield put(
-    actionPasswordChangeRequest(auth)
-  );
+  yield put(actionPasswordChangeRequest(auth));
 
   try {
-    const response : AuthPasswordChangeApiResponse = yield call(
+    const response: AuthPasswordChangeApiResponse = yield call(
       apiPasswordChange,
-      action.params || {idToken: '', password: '', returnSecureToken: true}
+      action.params || { idToken: '', password: '', returnSecureToken: true }
     );
 
     if (response.error) {
@@ -37,11 +33,11 @@ export function* sagasPasswordChangeAuth(
 
       yield put(actionPasswordChangeSuccess(auth));
     }
-  } catch(error) {    
+  } catch (error) {
     auth.errors = [error];
-    yield put(actionPasswordChangeFailure(auth));        
+    yield put(actionPasswordChangeFailure(auth));
   }
-};
+}
 
 export function* watchAsyncSagasPasswordChangeAuth() {
   yield takeLatest(

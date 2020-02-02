@@ -1,17 +1,13 @@
 import { connect } from 'react-redux';
 import { AuthState } from '../../store/auth';
-import { 
-  actionGetUserData,  
-  UserState
-} from '../../store/user';
+import { actionGetUserData, UserState } from '../../store/user';
 import { State } from '../../store/applicationState';
 import User from './User';
-import { Dispatch } from "redux";
-
+import { Dispatch } from 'redux';
 
 export interface PropsFromState {
-  auth: AuthState,
-  user: UserState
+  auth: AuthState;
+  user: UserState;
 }
 
 export interface PropsFromDispatch {
@@ -23,12 +19,8 @@ const mapStateToProps = (state: State): PropsFromState => ({
   user: state.user
 });
 
-
-const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch  => ({
-  actionGetUserData: () => dispatch(actionGetUserData()),
+const mapDispatchToProps = (dispatch: Dispatch): PropsFromDispatch => ({
+  actionGetUserData: () => dispatch(actionGetUserData())
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(User);
+export default connect(mapStateToProps, mapDispatchToProps)(User);

@@ -1,36 +1,23 @@
 import { Reducer } from 'redux';
 import { createReducer } from '../../utils/helpers/reducerHelper';
-import { 
-  UserState,
-  UserAction,
-  EUserActionTypes,  
-} from './types';
+import { UserState, UserAction, EUserActionTypes } from './types';
 
-export const userRequest = (
-  state: UserState,
-  action: UserAction
-) => ({
+export const userRequest = (state: UserState, action: UserAction) => ({
   ...state,
   ...action.payload
 });
 
-export const userSuccess = (
-  state: UserState,
-  action: UserAction
-) => ({
+export const userSuccess = (state: UserState, action: UserAction) => ({
   ...state,
   ...action.payload
-})
+});
 
-export const userFailure = (
-  state: UserState,
-  action: UserAction
-) => ({
+export const userFailure = (state: UserState, action: UserAction) => ({
   ...state,
   ...action.payload
-})
+});
 
-const initialState: UserState = ({
+const initialState: UserState = {
   isLoading: false,
   isLoaded: false,
   localId: null,
@@ -38,7 +25,7 @@ const initialState: UserState = ({
   emailVerified: false,
   displayName: null,
   providerUserInfo: null,
-  photoUrl:  null,
+  photoUrl: null,
   passwordHash: null,
   passwordUpdatedAt: 0,
   validSince: null,
@@ -46,16 +33,13 @@ const initialState: UserState = ({
   lastLoginAt: null,
   createdAt: null,
   customAuth: false,
-  errors: null,
+  errors: null
+};
+
+const userReducer: Reducer<UserState> = createReducer(initialState, {
+  [EUserActionTypes.GET_USER_DATA_REQUEST]: userRequest,
+  [EUserActionTypes.GET_USER_DATA_SUCCESS]: userSuccess,
+  [EUserActionTypes.GET_USER_DATA_FAILURE]: userFailure
 });
 
-const userReducer: Reducer<UserState> = createReducer(
-  initialState,
-  {
-    [EUserActionTypes.GET_USER_DATA_REQUEST]: userRequest,
-    [EUserActionTypes.GET_USER_DATA_SUCCESS]: userSuccess,
-    [EUserActionTypes.GET_USER_DATA_FAILURE]: userFailure
-  }
-);
-
-export { userReducer as UserReducer};
+export { userReducer as UserReducer };

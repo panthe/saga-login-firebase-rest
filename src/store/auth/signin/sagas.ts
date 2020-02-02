@@ -1,36 +1,37 @@
+import Cookies from 'js-cookie';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { push } from 'connected-react-router'
+import { push } from 'connected-react-router';
 import * as ROUTES from '../../../config/routes';
-import { AuthSignInAction, AuthSignInApiResponse, EAuthSignInActionTypes } from './types';
+import {
+  AuthSignInAction,
+  AuthSignInApiResponse,
+  EAuthSignInActionTypes
+} from './types';
 import {
   actionSignInRequest,
   actionSignInSuccess,
   actionSignInFailure
 } from './actions';
-import {
-  apiSignInWithMailAndPassword
-} from './api';
+import { apiSignInWithMailAndPassword } from './api';
 
-export function* sagasSignInAuth(
-  action: AuthSignInAction,
-) {
-    yield put(
-        actionSignInRequest({
-            isAuthenticated: false,
-            token: null,
-            refreshToken: null,
-            expiresIn: null,
-            errors: null,
-        }),
-    );
+export function* sagasSignInAuth(action: AuthSignInAction) {
+  yield put(
+    actionSignInRequest({
+      isAuthenticated: false,
+      token: null,
+      refreshToken: null,
+      expiresIn: null,
+      errors: null
+    })
+  );
 
   try {
     const response: AuthSignInApiResponse = yield call(
       apiSignInWithMailAndPassword,
-        action.params || {email: '', password: '', returnSecureToken: true}
+      action.params || { email: '', password: '', returnSecureToken: true }
     );
 
-    console.log("AuthSignInApiResponse",response);
+    console.log('AuthSignInApiResponse', response);
     if (response.error) {
       return yield put(
         actionSignInFailure({
@@ -41,7 +42,11 @@ export function* sagasSignInAuth(
           errors: response.error
         })
       );
-    }else{
+    } else {
+      Cookies.set('token', response.idToken);
+      Cookies.set('refreshToken', response.refreshToken);
+      Cookies.set('expiresIn', response.expiresIn);
+
       yield put(
         actionSignInSuccess({
           isAuthenticated: true,
@@ -51,12 +56,11 @@ export function* sagasSignInAuth(
           errors: null
         })
       );
-      
+
       return yield put(push(ROUTES.USER_PAGE));
     }
-
   } catch (error) {
-    console.log("Error",error)
+    console.log('Error', error);
     return yield put(
       actionSignInFailure({
         isAuthenticated: false,
@@ -71,7 +75,7 @@ export function* sagasSignInAuth(
 
 export function* watchAsyncSagasSignInAuth() {
   yield takeLatest(
-    EAuthSignInActionTypes.GET_AUTH_LOGIN, 
+    EAuthSignInActionTypes.GET_AUTH_LOGIN,
     (action: AuthSignInAction) => sagasSignInAuth(action)
   );
 }

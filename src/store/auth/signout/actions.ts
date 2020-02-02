@@ -1,16 +1,15 @@
 import { AuthState } from '../types';
-import {
-  EAuthSignOutActionTypes,
-  AuthSignOutAction,
-} from './types';
+import { EAuthSignOutActionTypes, AuthSignOutAction } from './types';
 
 export const actionSignOut = (): AuthSignOutAction => {
-  return ({
-    type: EAuthSignOutActionTypes.GET_AUTH_LOGOUT  
-  });
+  return {
+    type: EAuthSignOutActionTypes.GET_AUTH_LOGOUT
+  };
 };
 
-export const actionSignOutRequest = (payload: AuthState): AuthSignOutAction => ({
+export const actionSignOutRequest = (
+  payload: AuthState
+): AuthSignOutAction => ({
   type: EAuthSignOutActionTypes.GET_AUTH_LOGOUT_REQUEST,
   payload
 });

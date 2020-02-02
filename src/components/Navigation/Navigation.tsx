@@ -1,5 +1,5 @@
 import React from 'react';
-import { PropsFromState } from './'
+import { PropsFromState } from './';
 
 import * as ROUTES from '../../config/routes';
 import { Link } from 'react-router-dom';
@@ -9,11 +9,11 @@ type IProps = PropsFromState;
 
 const Navigation = (props: IProps): JSX.Element => {
   const { auth } = props;
-  console.log("Auth",auth);
+  console.log('Auth', auth);
   return (
-    <div>      
+    <div>
       <Nav>
-      <NavItem>
+        <NavItem>
           <NavLink tag={Link} to={ROUTES.SIGN_UP_PAGE}>
             Sign Up
           </NavLink>
@@ -28,29 +28,28 @@ const Navigation = (props: IProps): JSX.Element => {
             Landing
           </NavLink>
         </NavItem>
-        { auth.isAuthenticated ?
-        <NavItem>
-          <NavLink tag={Link} to={ROUTES.HOME_PAGE}>
-            Home
-          </NavLink>
-        </NavItem>
-        : null }
-        { auth.isAuthenticated ?
-        <NavItem>
-          <NavLink tag={Link} to={ROUTES.USER_PAGE}>
-            User
-          </NavLink>
-        </NavItem>
-        : null 
-        }
-        { auth.isAuthenticated ?
-        <NavItem>
-          <NavLink tag={Link} to={ROUTES.SIGN_OUT_PAGE}>
-            Log Out
-          </NavLink>
-        </NavItem>
-        : null }
-      </Nav>      
+        {auth.isAuthenticated ? (
+          <NavItem>
+            <NavLink tag={Link} to={ROUTES.HOME_PAGE}>
+              Home
+            </NavLink>
+          </NavItem>
+        ) : null}
+        {auth.isAuthenticated ? (
+          <NavItem>
+            <NavLink tag={Link} to={ROUTES.USER_PAGE}>
+              User
+            </NavLink>
+          </NavItem>
+        ) : null}
+        {auth.isAuthenticated ? (
+          <NavItem>
+            <NavLink tag={Link} to={ROUTES.SIGN_OUT_PAGE}>
+              Log Out
+            </NavLink>
+          </NavItem>
+        ) : null}
+      </Nav>
     </div>
   );
 };

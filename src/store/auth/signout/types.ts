@@ -2,7 +2,7 @@ import { AuthState } from '../types';
 
 export interface AuthSignOutAction {
   type: EAuthSignOutActionTypes;
-  payload?: AuthState;  
+  payload?: AuthState;
 }
 
 export enum EAuthSignOutActionTypes {

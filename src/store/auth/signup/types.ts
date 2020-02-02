@@ -3,7 +3,7 @@ import { AuthState } from '../types';
 export interface AuthSignUpParams {
   email: string;
   password: string;
-  returnSecureToken: boolean
+  returnSecureToken: boolean;
 }
 
 export interface AuthSignUpAction {
@@ -21,7 +21,7 @@ export interface AuthSignUpApiResponse {
   kind: string;
   localId: string;
   refreshToken: string;
-  registered: boolean;  
+  registered: boolean;
   error: [] | null;
 }
 

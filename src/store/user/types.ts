@@ -32,7 +32,7 @@ export interface UsersApiResponse {
   error: [] | null;
 }
 
-export interface IUser {  
+export interface IUser {
   localId: string | null;
   email: string | null;
   emailVerified: boolean;
@@ -45,12 +45,12 @@ export interface IUser {
   disabled: boolean;
   lastLoginAt: string | null;
   createdAt: string | null;
-  customAuth: boolean;  
+  customAuth: boolean;
 }
 
 export enum EUserActionTypes {
   GET_USER_DATA = 'trigger/GET_USER_DATA',
   GET_USER_DATA_REQUEST = 'event/GET_USER_DATA_REQUEST',
   GET_USER_DATA_SUCCESS = 'event/GET_USER_DATA_SUCCESS',
-  GET_USER_DATA_FAILURE = 'event/GET_USER_DATA_FAILURE',
+  GET_USER_DATA_FAILURE = 'event/GET_USER_DATA_FAILURE'
 }

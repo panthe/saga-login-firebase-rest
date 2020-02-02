@@ -7,7 +7,7 @@ import { watchAsyncSagasPasswordChangeAuth } from './auth/passwordchange';
 import { watchAsyncSagasUserData } from './user';
 
 export default function* rootSaga() {
-  yield all([    
+  yield all([
     fork(watchAsyncSagasSignInAuth),
     fork(watchAsyncSagasSignUpAuth),
     fork(watchAsyncSagasSignOutAuth),
@@ -15,5 +15,4 @@ export default function* rootSaga() {
     fork(watchAsyncSagasPasswordChangeAuth),
     fork(watchAsyncSagasUserData)
   ]);
-  
 }

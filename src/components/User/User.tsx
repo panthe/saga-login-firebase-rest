@@ -1,11 +1,8 @@
 import React from 'react';
 
-import {PropsFromState, PropsFromDispatch} from './';
+import { PropsFromState, PropsFromDispatch } from './';
 
-import {
-  Card, CardImg, CardText,
-  CardTitle, CardSubtitle, 
-} from 'reactstrap';
+import { Card, CardImg, CardText, CardTitle, CardSubtitle } from 'reactstrap';
 
 interface TokenDecoded {
   iss: string;
@@ -23,30 +20,40 @@ interface TokenDecoded {
 type IProps = PropsFromState & PropsFromDispatch;
 
 class User extends React.Component<IProps> {
-
-  state = {
-  };
+  state = {};
 
   componentDidMount() {
     this.fetchUserData();
   }
 
   fetchUserData = (): void => {
-    this.props.actionGetUserData();  
-  }
+    this.props.actionGetUserData();
+  };
 
-  render(): JSX.Element {   
+  render(): JSX.Element {
     const { user } = this.props;
-    console.log("Render", this.props);
+    console.log('Render', this.props);
     return (
-      <div style={{width:'300px'}}>
+      <div style={{ width: '300px' }}>
         <Card>
-          <CardImg top width="100%" src={user.photoUrl ? user.photoUrl : 'https://via.placeholder.com/150.png?text=Avatar'} alt="User Img" />
+          <CardImg
+            top
+            width="100%"
+            src={
+              user.photoUrl
+                ? user.photoUrl
+                : 'https://via.placeholder.com/150.png?text=Avatar'
+            }
+            alt="User Img"
+          />
           <CardTitle>{user.displayName}</CardTitle>
           <CardSubtitle>{user.email}</CardSubtitle>
-          <CardText><b>ID:</b>{user.localId}</CardText>
+          <CardText>
+            <b>ID:</b>
+            {user.localId}
+          </CardText>
         </Card>
-      </div>      
+      </div>
     );
   }
 }

@@ -1,15 +1,11 @@
 import React from 'react';
-import { PropsFromState, PropsFromDispatch } from './';
+import { PropsFromState } from './';
 
-type IProps = PropsFromState & PropsFromDispatch;
+type IProps = PropsFromState;
 
 class Home extends React.Component<IProps> {
   render(): JSX.Element {
-    return (
-      <div>
-        Home
-      </div>
-    );
+    return <div>Home</div>;
   }
 }
 
