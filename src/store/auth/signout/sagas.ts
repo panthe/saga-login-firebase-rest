@@ -3,6 +3,7 @@ import { push } from 'connected-react-router';
 import * as ROUTES from '../../../config/routes';
 import { AuthSignOutAction, EAuthSignOutActionTypes } from './types';
 import { actionSignOutRequest } from './actions';
+import {removeCookies} from "../../../utils/helpers/token";
 
 export function* sagasSignOutAuth(action: AuthSignOutAction) {
   const { auth } = yield select();
@@ -16,6 +17,8 @@ export function* sagasSignOutAuth(action: AuthSignOutAction) {
       errors: null
     })
   );
+
+  yield call(removeCookies);
 
   return yield put(push(ROUTES.SIGN_IN_PAGE));
 }

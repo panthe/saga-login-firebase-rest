@@ -90,3 +90,8 @@ export const isTokenExpired = (token: string): boolean => {
   return true;
 };
 
+export const removeCookies = (): void => {
+  Cookies.remove('token');
+  Cookies.remove('refreshToken');
+  Cookies.remove('expiresIn');
+};
