@@ -19,47 +19,7 @@ const token = Cookies.get('token');
 const refreshToken = Cookies.get('refreshToken');
 const expiresIn = Cookies.get('expiresIn');
 
-const preloadStateAuth: AuthState = {
-  isAuthenticated: token === undefined ? false : true,
-  token: token === undefined ? null : token,
-  refreshToken: refreshToken === undefined ? null : refreshToken,
-  expiresIn: expiresIn === undefined ? null : expiresIn,
-  errors: null
-};
-
-const preloadStateUser: UserState = {
-  isLoading: false,
-  isLoaded: false,
-  localId: null,
-  email: null,
-  emailVerified: false,
-  displayName: null,
-  providerUserInfo: null,
-  photoUrl: null,
-  passwordHash: null,
-  passwordUpdatedAt: 0,
-  validSince: null,
-  disabled: false,
-  lastLoginAt: null,
-  createdAt: null,
-  customAuth: false,
-  errors: null
-};
-
-const history = createHashHistory();
-
-const preloadStateRouter: RouterState = {
-  location: history.location,
-  action: history.action
-};
-
-const preloadState: State = {
-  auth: preloadStateAuth,
-  user: preloadStateUser,
-  router: preloadStateRouter
-};
-
-const store = configureStore(preloadState);
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>

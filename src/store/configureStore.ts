@@ -12,10 +12,9 @@ const composeEnhancers = composeWithDevTools({});
 const sagaMiddleware = createSagaMiddleware();
 export const history: History = createBrowserHistory();
 
-export default function configureStore(preloadState: State) {
+export default function configureStore() {
   const store: Store = createStore(
     rootReducer(history),
-    preloadState,
     composeEnhancers(
       applyMiddleware(
         requestMiddleware(),

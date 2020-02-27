@@ -28,11 +28,11 @@ export interface UserAction {
 }
 
 export interface UsersApiResponse {
-  users: IUser[] | null;
+  users: User[] | null;
   error: [] | null;
 }
 
-export interface IUser {
+export interface User {
   localId: string | null;
   email: string | null;
   emailVerified: boolean;

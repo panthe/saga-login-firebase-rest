@@ -1,5 +1,5 @@
 import { call, put, takeLatest, select } from 'redux-saga/effects';
-import { UserAction, UsersApiResponse, IUser, EUserActionTypes } from './types';
+import { UserAction, UsersApiResponse, User, EUserActionTypes } from './types';
 import {
   actionGetUserDataRequest,
   actionGetUserDataSuccess,
@@ -59,7 +59,7 @@ export function* sagasUser(action: UserAction) {
       );
     } else {
       if (response.users) {
-        const user: IUser = response.users[0];
+        const user: User = response.users[0];
         yield put(
           actionGetUserDataSuccess({
             isLoading: false,
