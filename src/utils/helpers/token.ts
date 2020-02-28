@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import { convertFromEpoch } from './epoch';
 import { fetch } from '../fetch';
 import Cookies from 'js-cookie';
-import { AuthState } from '../../store/auth';
 
 interface TokenDecoded {
   iss: string;
